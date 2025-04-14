@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: "https://lecture-summarize-frontend.vercel.app/", // replace with your actual Vercel URL
+  origin: "https://lecture-summarize-frontend.vercel.app", // replace with your actual Vercel URL
   methods: ["GET", "POST"],
   credentials: true
 }));
