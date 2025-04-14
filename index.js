@@ -74,15 +74,15 @@ app.post('/upload', upload.single('audio'), async (req, res) => {
       if (status === 'completed') {
         const transcriptionText = statusResponse.data.text;
         const summary = await summarizeText(transcriptionText);
-        res.json({ transcription: transcriptionText, summary });
+        return res.json({ transcription: transcriptionText, summary });
       } else if (status === 'error') {
-        res.status(500).json({ error: 'Transcription failed.' });
+       return res.status(500).json({ error: 'Transcription failed.' });
       } else {
         setTimeout(checkStatus, 3000);
       }
     };
 
-    checkStatus();
+    return checkStatus();
 
   } catch (err) {
     console.error(err);
