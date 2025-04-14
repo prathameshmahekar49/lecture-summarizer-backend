@@ -15,7 +15,7 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
-
+app.options("*", cors()); // Preflight
 // Multer setup
 
 const upload = multer({ storage: multer.memoryStorage() });
