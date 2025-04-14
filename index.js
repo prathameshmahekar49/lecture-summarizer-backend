@@ -9,7 +9,11 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: "https://lecture-summarize-frontend-923epdb6k.vercel.app", // replace with your actual Vercel URL
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 app.use(express.json());
 
 // Multer setup
